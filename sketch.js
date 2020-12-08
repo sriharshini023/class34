@@ -22,7 +22,7 @@ function setup(){
     box8= new Box(250,250,50,50);
     box9= new Box(350,250,50,50);
     
-    ball = new Ball(100,100,20);
+    ball = new Ball(100,100);
 }
 
 function draw(){
