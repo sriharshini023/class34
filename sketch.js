@@ -2,16 +2,17 @@ const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
 
+
 var engine, world;
 var ground, ball;
 var box1,box2,box3,box4,box5,box6,box7,box8,box9;
 
 function setup(){
-    var canvas = createCanvas(400,400);
+    var canvas = createCanvas(1000,600);
     engine = Engine.create();
     world = engine.world;
 
-    ground = new Ground(200,height,400,20);
+    ground = new Ground(500,500,1000,20);
     box1= new Box(150,350,50,50);
     box2= new Box(250,350,50,50);
     box3= new Box(350,350,50,50);
@@ -21,8 +22,10 @@ function setup(){
     box7= new Box(150,250,50,50);
     box8= new Box(250,250,50,50);
     box9= new Box(350,250,50,50);
+
     
-    ball = new Ball(100,100);
+    ball = new Ball(200,200);
+    chain=new constraint(ball.body,{x:100,y:20})
 }
 
 function draw(){
@@ -39,4 +42,10 @@ function draw(){
    box8.display();
    box9.display();
    ball.display();
+   chain.display();
 }
+function mouseDragged(){
+  //  if (gameState!=="launched"){
+        Matter.Body.setPosition(ball.body, {x: mouseX , y: mouseY});
+    }
+//}

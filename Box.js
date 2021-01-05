@@ -15,6 +15,7 @@ class Box {
       var pos =this.body.position;
       var angle = this.body.angle;
      push();
+       angleMode(RADIANS)
       translate(pos.x, pos.y);
       rotate(angle);
       rectMode(CENTER);
